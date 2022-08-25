@@ -1,0 +1,36 @@
+GET http://127.0.0.1:8000/api/v1/role
+Accept: application/json
+Authorization: Bearer 8|ZGoKPJ4djb1sJ67Y7ksT76OsQJ8MkAfYFOhEDr4K
+
+### Nuevo Rol
+POST http://127.0.0.1:8000/api/v1/role
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 8|ZGoKPJ4djb1sJ67Y7ksT76OsQJ8MkAfYFOhEDr4K
+
+{
+    "nombre": "gerente",
+    "detalle": "puede gestionar recursos"
+}
+
+### mostrar un rol
+GET http://127.0.0.1:8000/api/v1/role/3
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 8|ZGoKPJ4djb1sJ67Y7ksT76OsQJ8MkAfYFOhEDr4K
+
+### modificar
+PUT http://127.0.0.1:8000/api/v1/role/2
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 8|ZGoKPJ4djb1sJ67Y7ksT76OsQJ8MkAfYFOhEDr4K
+
+{
+    "nombre": "GERENTE",
+    "detalle": "puede gestionar recursos modificados"
+}
+
+### eliminar
+DELETE http://127.0.0.1:8000/api/v1/role/2
+Accept: application/json
+Authorization: Bearer 8|ZGoKPJ4djb1sJ67Y7ksT76OsQJ8MkAfYFOhEDr4K

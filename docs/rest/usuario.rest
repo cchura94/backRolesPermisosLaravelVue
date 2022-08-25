@@ -1,0 +1,16 @@
+GET http://127.0.0.1:8000/api/v1/usuario
+Accept: application/json
+Authorization: Bearer 9|HRwIA1s2YrDz9Xkb9tlasbXoPT4L1Tud2H8pxcND
+
+### Guardar usuario
+POST http://127.0.0.1:8000/api/v1/usuario
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 9|HRwIA1s2YrDz9Xkb9tlasbXoPT4L1Tud2H8pxcND
+
+{
+    "name": "prueba",
+    "email": "prueba@mail.com",
+    "password": "prueba54321"
+}
+
