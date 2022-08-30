@@ -25,6 +25,17 @@ class AuthController extends Controller
         $tokenResult = $usuario->createToken('Token Login');
         $token = $tokenResult->plainTextToken;
 
+        $usuario->roles[0]->permisos = $usuario->roles()
+                ->with("permisos")
+                ->get()
+                ->pluck("permisos")
+                ->flatten()
+                ->map(function($permiso){
+                    return array('action' => $permiso->action, 'subject' => $permiso->subject);
+                });
+                // ->pluck('detalle');
+                
+
         // respuesta token -usuario
         return response()->json([
             "accessToken" => $token,
