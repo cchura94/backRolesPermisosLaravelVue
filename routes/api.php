@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PermisoController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Http\Request;
@@ -28,6 +29,7 @@ Route::group(["prefix" => "v1/auth"], function(){
 // roles
 Route::group(["prefix" => "v1", "middleware" => "auth:sanctum"], function(){
     
+    Route::apiResource("permiso", PermisoController::class);
     Route::apiResource("role", RoleController::class);
     Route::apiResource("usuario", UsuarioController::class);
 });

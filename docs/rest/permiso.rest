@@ -1,0 +1,38 @@
+GET http://127.0.0.1:8000/api/v1/permiso
+Accept: application/json
+Authorization: Bearer 37|efF4RESx7S887EOOlsxKHTjQiVzUjf3TXhSJ1ODE
+
+### Nuevo permiso
+POST http://127.0.0.1:8000/api/v1/permiso
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 37|efF4RESx7S887EOOlsxKHTjQiVzUjf3TXhSJ1ODE
+
+{
+    "detalle": "create_permiso",
+    "action": "create",
+    "subject": "permiso"
+}
+
+### mostrar un rol
+GET http://127.0.0.1:8000/api/v1/permiso/15
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 37|efF4RESx7S887EOOlsxKHTjQiVzUjf3TXhSJ1ODE
+
+### modificar
+PUT http://127.0.0.1:8000/api/v1/permiso/2
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 37|efF4RESx7S887EOOlsxKHTjQiVzUjf3TXhSJ1ODE
+
+{
+    "detalle": "create_permiso",
+    "action": "create",
+    "subject": "permiso"
+}
+
+### eliminar
+DELETE http://127.0.0.1:8000/api/v1/permiso/2
+Accept: application/json
+Authorization: Bearer 8|ZGoKPJ4djb1sJ67Y7ksT76OsQJ8MkAfYFOhEDr4K
