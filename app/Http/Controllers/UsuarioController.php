@@ -14,7 +14,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = User::paginate(10);
+        $usuarios = User::with('roles')->paginate(10);
         return response()->json($usuarios, 200);
     }
 
