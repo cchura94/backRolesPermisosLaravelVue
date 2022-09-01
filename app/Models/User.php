@@ -63,5 +63,10 @@ class User extends Authenticatable
         return $this->roles->flatten()->pluck("nombre")->contain("admin");
     }
 
+    public function permisos()
+    {
+        return $this->roles->map->permisos->flatten()->pluck('detalle')->unique();
+    }
+
     
 }

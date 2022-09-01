@@ -14,6 +14,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
+        $this->authorize("viewAny_user");
+
         $usuarios = User::with('roles')->paginate(10);
         return response()->json($usuarios, 200);
     }
@@ -26,6 +28,8 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize("create_user");
+
         // validar
         $request->validate([
             "name" => "required",
@@ -50,6 +54,8 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
+        $this->authorize("show_user");
+
         $usuario = User::find($id);
         return response()->json($usuario, 200);
     }
@@ -63,6 +69,8 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->authorize("update_user");
         // validar
         $request->validate([
             "name" => "required",
@@ -87,6 +95,8 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize("delete_user");
+
         $usuario = User::find($id);
         $usuario->delete();
 

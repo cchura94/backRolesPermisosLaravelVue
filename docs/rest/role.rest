@@ -6,11 +6,11 @@ Authorization: Bearer 8|ZGoKPJ4djb1sJ67Y7ksT76OsQJ8MkAfYFOhEDr4K
 POST http://127.0.0.1:8000/api/v1/role
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 8|ZGoKPJ4djb1sJ67Y7ksT76OsQJ8MkAfYFOhEDr4K
+Authorization: Bearer 47|JKmDeyfqTgrrYSVlm1b56RmJv8xF18kx8GC7SnBg
 
 {
-    "nombre": "gerente",
-    "detalle": "puede gestionar recursos"
+    "nombre": "anonimo",
+    "detalle": "no puede realizar ninguna accion"
 }
 
 ### mostrar un rol

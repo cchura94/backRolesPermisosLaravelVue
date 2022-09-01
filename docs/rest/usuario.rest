@@ -1,16 +1,23 @@
+### rol gerente
 GET http://127.0.0.1:8000/api/v1/usuario
 Accept: application/json
-Authorization: Bearer 9|HRwIA1s2YrDz9Xkb9tlasbXoPT4L1Tud2H8pxcND
+Authorization: Bearer 40|s5M9m3BIMfsGU23KqE7d6sTnCvg6a9ZrOI11rgPQ
+
+### rol user
+GET http://127.0.0.1:8000/api/v1/usuario
+Accept: application/json
+Authorization: Bearer 41|RkoqtK8TrnXnOxw7zJ2bfy7r6M0tbFAlxeWWHYcd
+
 
 ### Guardar usuario
 POST http://127.0.0.1:8000/api/v1/usuario
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 9|HRwIA1s2YrDz9Xkb9tlasbXoPT4L1Tud2H8pxcND
+Authorization: Bearer 41|RkoqtK8TrnXnOxw7zJ2bfy7r6M0tbFAlxeWWHYcd
 
 {
-    "name": "prueba",
-    "email": "prueba@mail.com",
+    "name": "prueba3",
+    "email": "prueba3@mail.com",
     "password": "prueba54321"
 }
 
