@@ -9,6 +9,13 @@ Accept: application/json
 Authorization: Bearer 41|RkoqtK8TrnXnOxw7zJ2bfy7r6M0tbFAlxeWWHYcd
 
 
+### rol user
+GET http://127.0.0.1:8000/api/v1/usuario
+Accept: application/json
+Authorization: Bearer 47|JKmDeyfqTgrrYSVlm1b56RmJv8xF18kx8GC7SnBg
+
+
+
 ### Guardar usuario
 POST http://127.0.0.1:8000/api/v1/usuario
 Accept: application/json

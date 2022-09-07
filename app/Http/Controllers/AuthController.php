@@ -26,17 +26,18 @@ class AuthController extends Controller
         $token = $tokenResult->plainTextToken;
 
         // return $usuario->permisos();
+        if(count($usuario->roles)>0){
+            $usuario->roles[0]->permisos = $usuario->roles()
+                    ->with("permisos")
+                    ->get()
+                    ->pluck("permisos")
+                    ->flatten()
+                    ->map(function($permiso){
+                        return array('action' => $permiso->action, 'subject' => $permiso->subject);
+                    });
+                    // ->pluck('detalle');
 
-        $usuario->roles[0]->permisos = $usuario->roles()
-                ->with("permisos")
-                ->get()
-                ->pluck("permisos")
-                ->flatten()
-                ->map(function($permiso){
-                    return array('action' => $permiso->action, 'subject' => $permiso->subject);
-                });
-                // ->pluck('detalle');
-                
+        }                
 
         // respuesta token -usuario
         return response()->json([

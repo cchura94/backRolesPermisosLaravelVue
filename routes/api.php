@@ -28,6 +28,9 @@ Route::group(["prefix" => "v1/auth"], function(){
 
 // roles
 Route::group(["prefix" => "v1", "middleware" => "auth:sanctum"], function(){
+
+    Route::post("usuario/asignar-rol", [UsuarioController::class, "asignarRol"]);
+    Route::post("usuario/quitar-rol", [UsuarioController::class, "quitarRol"]);
     
     Route::apiResource("permiso", PermisoController::class);
     Route::apiResource("role", RoleController::class);

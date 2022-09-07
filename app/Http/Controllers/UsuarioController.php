@@ -102,4 +102,21 @@ class UsuarioController extends Controller
 
         return response()->json(["mensaje" => "Usuario eliminado"], 200);
     }
+
+    public function asignarRol(Request $request)
+    {
+        $user = User::find($request->user_id);
+        $user->assignRole($request->role);
+
+        return response()->json(["mensaje" => "Rol Asignado"], 200);
+    }
+
+    public function quitarRol(Request $request)
+    {
+        $user = User::find($request->user_id);
+        $user->removeRole($request->role);
+
+        return response()->json(["mensaje" => "Rol Quitado"], 200);
+    }
+    
 }

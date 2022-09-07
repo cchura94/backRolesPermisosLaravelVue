@@ -58,6 +58,17 @@ class User extends Authenticatable
         $this->roles()->sync($role, false);
     }
 
+    public function removeRole($role)
+    {
+        // "admin",
+        // {nombre: admin, detalle: 'administrar todo'}
+        if(is_string($role)){
+            $role = Role::where("nombre", $role)->firstOrFail();
+        }
+
+        $this->roles()->detach($role);
+    }
+
     public function isAdministrador()
     {
         return $this->roles->flatten()->pluck("nombre")->contain("admin");
