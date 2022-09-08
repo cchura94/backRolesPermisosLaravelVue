@@ -74,14 +74,15 @@ class UsuarioController extends Controller
         // validar
         $request->validate([
             "name" => "required",
-            "email" => "required|unique:users,email,$id",
-            "password" => "required"
+            "email" => "required|unique:users,email,$id"
         ]);
         // modificar
         $usuario = User::find($id);
         $usuario->name = $request->name;
         $usuario->email = $request->email;
-        $usuario->password = bcrypt($request->password);
+        if($request->password){
+            $usuario->password = bcrypt($request->password);
+        }
         $usuario->update();
         // responder
         return response()->json(["mensaje" => "Usuario modificado"], 200);
