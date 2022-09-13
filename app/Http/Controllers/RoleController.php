@@ -87,4 +87,14 @@ class RoleController extends Controller
         // respuesta
         return response()->json(["mensaje" => "Role eliminado"], 200);
     }
+
+    public function asignarPermiso(Request $request)
+    {
+        $rol = Role::find($request->role_id);
+        $rol->permisos()->sync($request->permisos);
+
+        return response()->json(["mensaje" => "Permisos Asignados"], 200);
+    }
+
+
 }
