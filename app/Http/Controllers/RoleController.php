@@ -48,7 +48,7 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        $rol = Role::find($id);
+        $rol = Role::with('permisos')->find($id);
         return response()->json($rol, 200);
     }
 
