@@ -27,15 +27,22 @@ class AuthController extends Controller
 
         // return $usuario->permisos();
         if(count($usuario->roles)>0){
-            $usuario->roles[0]->permisos = $usuario->roles()
-                    ->with("permisos")
-                    ->get()
-                    ->pluck("permisos")
-                    ->flatten()
-                    ->map(function($permiso){
-                        return array('action' => $permiso->action, 'subject' => $permiso->subject);
-                    });
-                    // ->pluck('detalle');
+            $array_permisos =  $usuario->roles()
+                                        ->with("permisos")
+                                        ->get()
+                                        ->pluck("permisos")
+                                        ->flatten()
+                                        ->map(function($permiso){
+                                            return array('action' => $permiso->action, 'subject' => $permiso->subject);
+                                        })
+                                        ->unique();
+                                        // ->pluck('detalle');
+            $aux = [];
+            foreach ($array_permisos as $perm) {
+                array_push($aux, $perm);
+            }
+
+            $usuario->ability = $aux;
 
         }                
 
