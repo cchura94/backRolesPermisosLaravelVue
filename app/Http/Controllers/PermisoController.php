@@ -14,6 +14,7 @@ class PermisoController extends Controller
      */
     public function index()
     {
+        $this->authorize("viewAny_permiso");
         $permisos = Permiso::paginate(15);
         return response()->json($permisos, 200);
     }
@@ -26,6 +27,7 @@ class PermisoController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize("create_permiso");
         $request->validate([
             "detalle" => "required|max:30|unique:permisos",
             "action" => "required|max:30",
@@ -53,6 +55,7 @@ class PermisoController extends Controller
      */
     public function show($id)
     {
+        $this->authorize("view_permiso");
         $permiso = Permiso::findOrFail($id);
         return response()->json($permiso, 200);
     }
@@ -66,6 +69,7 @@ class PermisoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize("update_permiso");
         $request->validate([
             "detalle" => "required|max:30|unique:permisos,detalle,$id",
             "action" => "required|max:30",
@@ -94,6 +98,7 @@ class PermisoController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize("delete_permiso");
         $permiso = Permiso::find($id);
         $permiso->delete();
 

@@ -14,6 +14,8 @@ class RoleController extends Controller
      */
     public function index()
     {
+        $this->authorize("viewAny_role");
+
         $roles = Role::with('permisos')->get();
 
         return response()->json($roles, 200);
@@ -27,6 +29,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize("create_role");
         // validacion
         $request->validate([
             "nombre" => "required|unique:roles"
@@ -48,6 +51,7 @@ class RoleController extends Controller
      */
     public function show($id)
     {
+        $this->authorize("view_role");
         $rol = Role::with('permisos')->find($id);
         return response()->json($rol, 200);
     }
@@ -61,6 +65,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize("update_role");
          // validacion
         $request->validate([
             "nombre" => "required|unique:roles,nombre,$id"
@@ -82,6 +87,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize("delete_role");
         $rol = Role::find($id);
         $rol->delete();
         // respuesta
